@@ -13,7 +13,7 @@ import { Button } from "../../../components/uiComponents/button";
 import TextField from "../../../components/Gym/ TextField";
 import { CreateFormProps } from "../../../types/gym.types";
 
-export default function MembershipAndHealthInfo({ currentStep, handleNext }: CreateFormProps) {
+export default function MembershipAndHealthInfo({ currentStep, handleNext,handlePrevStep }: CreateFormProps) {
   const allFields:any= USER_ONBOARDING_FORM[currentStep] || [];
 
   const [formFields, setFormFields] = useState<FieldType[]>([]);
@@ -131,7 +131,7 @@ export default function MembershipAndHealthInfo({ currentStep, handleNext }: Cre
                     allFields.health.map(
                       (field: FormValues, index: number) => {
                         return (
-                          <div className="w-full">
+                          <div key={index} className="w-full">
                             <Field
                               name={field.name}
                               label={field.label}
@@ -147,15 +147,16 @@ export default function MembershipAndHealthInfo({ currentStep, handleNext }: Cre
               </div>
 
               <div className="flex justify-between">
-                <button
-                  type="submit"
+                <button onClick={()=>handlePrevStep?.(USER_ONBOARDING_STEPS.PERSONAL_INFO)
+                }
+                
                   className={Button({
                     color: "secondary",
                   })}
                 >
-                  Not Now
+                  Back
                 </button>
-                <button
+                <button   type="submit"
                   className={Button({
                     color: "primary",
                   })}

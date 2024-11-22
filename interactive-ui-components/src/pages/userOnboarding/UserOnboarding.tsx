@@ -1,6 +1,5 @@
 import { Check, MoveRight } from "lucide-react";
 import CustomTypography from "../../components/uiComponents/Typography";
-import { userOnboarding as initialSteps } from "../../data/gym/userOnboarding";
 import CreateForm from "./forms/CreateForm";
 import PersonalInfo from "./forms/PersonalInfoForm";
 import MembershipAndHealthInfo from "./forms/Membership";
@@ -16,6 +15,10 @@ export default function UserOnboarding() {
   const handleNextStep = (nextStep:string) => {
     setCurrentStep(nextStep);
     setSteps(updateActiveAndComplete(nextStep));
+  };
+  const handlePrevStep = (prevStep: string) => {
+    setCurrentStep(prevStep);
+    setSteps(updateActiveAndComplete(prevStep));
   };
 
   return (
@@ -80,13 +83,20 @@ export default function UserOnboarding() {
         {/* Main Content */}
         <div className="md:col-span-7">
           {/* Render form based on current step */}
-          {currentStep === USER_ONBOARDING_STEPS.CREATE_ACCOUNT && <CreateForm currentStep={currentStep} handleNext={handleNextStep}/>}
-          {currentStep === USER_ONBOARDING_STEPS.PERSONAL_INFO && <PersonalInfo currentStep={currentStep} handleNext={handleNextStep} />}
+          {currentStep === USER_ONBOARDING_STEPS.CREATE_ACCOUNT && <CreateForm 
+        
+          currentStep={currentStep} 
+          handleNext={handleNextStep}/>}
+          {currentStep === USER_ONBOARDING_STEPS.PERSONAL_INFO && <PersonalInfo
+          handlePrevStep={handlePrevStep}
+           currentStep={currentStep} handleNext={handleNextStep} />}
           {currentStep === USER_ONBOARDING_STEPS.MEMBERSHIP_AND_HEALTH_INFO && (
-            <MembershipAndHealthInfo currentStep={currentStep} handleNext={handleNextStep}/>
+           
+            <MembershipAndHealthInfo  handlePrevStep={handlePrevStep} currentStep={currentStep}
+             handleNext={handleNextStep}/>
           )}
           {currentStep === USER_ONBOARDING_STEPS.WORKOUT_AND_PROGRESS_PREFERENCE && (
-            <WorkoutPreference currentStep={currentStep} handleNext={handleNextStep} />
+            <WorkoutPreference handlePrevStep={handlePrevStep} currentStep={currentStep} handleNext={handleNextStep} />
           )}
           {/* Next Button Example */}
           <button

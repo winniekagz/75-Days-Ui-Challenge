@@ -1,4 +1,4 @@
-import  { useState } from 'react'
+
 import { USER_ONBOARDING_FORM, USER_ONBOARDING_STEPS } from '../../../constants/gym';
 import { FieldType, FormValues } from '../../../types/profile.types';
 import Container from '../../../components/Gym/layout/container';
@@ -10,7 +10,7 @@ import TextField from '../../../components/Gym/ TextField';
 import { Button } from '../../../components/uiComponents/button';
 import { CreateFormProps } from '../../../types/gym.types';
 
-export default function WorkoutPreference({ currentStep, handleNext }: CreateFormProps) {
+export default function WorkoutPreference({ currentStep,handlePrevStep }: CreateFormProps) {
  
   const formFields:any = USER_ONBOARDING_FORM[currentStep] || [];
   return (
@@ -50,9 +50,9 @@ export default function WorkoutPreference({ currentStep, handleNext }: CreateFor
         
        ))}
        <div className="flex  justify-between">
-    <button type="submit" className={Button({
+    <button onClick={()=>handlePrevStep?.(USER_ONBOARDING_STEPS.MEMBERSHIP_AND_HEALTH_INFO)} type="submit" className={Button({
         color:'secondary'
-    })}>Not Now</button>
+    })}>Back</button>
 <button  className={Button({
         color:'primary'
        })}>
