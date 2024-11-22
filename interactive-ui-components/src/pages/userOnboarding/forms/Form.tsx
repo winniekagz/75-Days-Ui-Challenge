@@ -10,7 +10,7 @@ import { getValidationSchema } from "../../../utils/getValidation";
 
 const MyForm = () => {
 
-    const [formFields, setFormFields] = useState<FieldType[]>([
+    const [formFields, setFormFields] = useState<any>([
         { name: "name", label: "Name", type: "text", validation: "required" },
         { name: "email", label: "Email", type: "email", validation: "email" },
         { name: "message", label: "Message", type: "text", validation: "minLength" },
@@ -33,7 +33,7 @@ const MyForm = () => {
       };
   return (
     <Formik
-    initialValues={formFields.reduce((acc, field) => {
+    initialValues={formFields.reduce((acc:FormValues, field:FieldType) => {
         acc[field.name] = "";
         return acc;
       }, {} as FormValues)}
@@ -51,7 +51,7 @@ const MyForm = () => {
       {() => (
         <Form className="space-y-4">
           
-             {formFields.map((field, index) => (
+             {formFields.map((field:FieldType, index:number) => (
             <Field
               key={index}
               name={field.name}

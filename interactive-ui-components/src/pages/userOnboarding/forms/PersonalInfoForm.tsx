@@ -11,7 +11,7 @@ import TextField from '../../../components/Gym/ TextField'
 import { Button } from '../../../components/uiComponents/button'
 import { CreateFormProps } from '../../../types/gym.types'
 
-export default function PersonalInfo({ currentStep, handleNext }: CreateFormProps) {
+export default function PersonalInfo({ currentStep, handleNext,handlePrevStep }: CreateFormProps) {
   const formFields:any = USER_ONBOARDING_FORM[currentStep] || [];
     
      
@@ -58,9 +58,9 @@ export default function PersonalInfo({ currentStep, handleNext }: CreateFormProp
        {/* Button to add a new field */}
      
 <div className="flex  justify-between">
-    <button type="submit" className={Button({
+    <button onClick={()=>handlePrevStep?.(USER_ONBOARDING_STEPS.CREATE_ACCOUNT)} type="submit" className={Button({
         color:'secondary'
-    })}>Not Now</button>
+    })}>Back</button>
 <button  className={Button({
         color:'primary'
        })}>

@@ -6,4 +6,5 @@ export type StepperProps={
 export type CreateFormProps= {
     currentStep: string;
     handleNext: (nextStep:string) => void;
+    handlePrevStep?:(prevStep:string)=>void
   }
