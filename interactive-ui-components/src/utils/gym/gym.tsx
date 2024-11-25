@@ -3,7 +3,6 @@ import DatePicker from "../../components/Gym/formInputs/DatePicker";
 import PasswordField from "../../components/Gym/formInputs/PaswordField";
 import PhoneField from "../../components/Gym/formInputs/PhoneField";
 import SelectField from "../../components/Gym/formInputs/SelectField";
-import SingleDatePicker from "../../components/Gym/formInputs/SingleDatePicker";
 import TextArea from "../../components/Gym/formInputs/TextArea";
 import { userOnboarding } from "../../data/gym/userOnboarding";
 

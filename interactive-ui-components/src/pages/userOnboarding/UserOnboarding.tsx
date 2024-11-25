@@ -41,7 +41,7 @@ export default function UserOnboarding() {
             {steps.map((step, index) => (
               <div
                 key={index}
-                className={`text-secondary border-secondary p-4 rounded-[12px] border max-w-[300px]
+                className={`text-secondary p-4 rounded-[12px] border max-w-[300px]
                   ${
                     step.activeStep
                       ? "bg-primary/20 border-Primary/5 hover:bg-primary/40"

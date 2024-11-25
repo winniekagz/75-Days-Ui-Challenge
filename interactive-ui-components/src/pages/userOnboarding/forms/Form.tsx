@@ -38,12 +38,7 @@ const MyForm = () => {
         return acc;
       }, {} as FormValues)}
       validationSchema={getValidationSchema(formFields)}
-    //   initialValues={{
-    //     name: "",
-    //     email: "",
-    //     message: "", // For textarea
-    //   }}
-    //   validationSchema={validationSchema}
+   
       onSubmit={(values) => {
         console.log(values);
       }}

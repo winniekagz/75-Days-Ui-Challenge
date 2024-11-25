@@ -10,7 +10,6 @@ import {
 import { Formik, Form, Field } from "formik";
 import { getValidationSchema } from "../../../utils/getValidation";
 import { Button } from "../../../components/uiComponents/button";
-import TextField from "../../../components/Gym/formInputs/ TextField";
 import { CreateFormProps } from "../../../types/gym.types";
 import { RenderInput } from "../../../utils/gym/gym";
 
@@ -95,14 +94,7 @@ export default function MembershipAndHealthInfo({ currentStep, handleNext,handle
                   {allFields.membership.length > 0 &&
                     allFields.membership.map(
                       (field: FieldType, index: number) => {
-                        console.log(
-                          "field:",
-                          field,
-                          "index:",
-                          index,
-                          "allFields:",
-                          allFields
-                        );
+                        
                         return (
                           <div key={index} className="w-full ">
                             <Field
