@@ -63,6 +63,8 @@ const [selectedDate,setSelectedDate]=useState(
           <Datepicker
             useRange={!isSingle}
             asSingle={isSingle}
+            // minDate={minDate}
+            // maxDate={MAX_DATE}
             primaryColor={"red"}
             value={selectedDate}
             // value={isSingle ? field.value : { startDate: null, endDate: null }}
