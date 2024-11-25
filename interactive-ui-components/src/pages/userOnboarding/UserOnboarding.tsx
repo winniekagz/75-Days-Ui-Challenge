@@ -22,7 +22,7 @@ export default function UserOnboarding() {
   };
 
   return (
-    <div className="h-[100vh] bg-Background">
+    <div className="h-[100vh] bg-Background px-6">
       <div className="grid md:grid-cols-11 gap-2 h-full">
         {/* Sidebar */}
         <div className="hidden md:block md:col-span-4 bg-white px-4 md:px-12 py-12 lg:px-12 xl:p-32">
