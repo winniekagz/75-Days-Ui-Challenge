@@ -70,17 +70,17 @@ export const USER_ONBOARDING_FORM={
             validation: "optional",
           },
           // Payment Information
-          {
-            name: "billingCycle",
-            label: "Billing Cycle",
-            type: "dropdown",
-            options: [
-              { value: "Monthly", label: "Monthly" },
-              { value: "Quarterly", label: "Quarterly" },
-              { value: "Annually", label: "Annually" }
-            ],
-            validation: "required",
-          },
+          // {
+          //   name: "billingCycle",
+          //   label: "Billing Cycle",
+          //   type: "dropdown",
+          //   options: [
+          //     { value: "Monthly", label: "Monthly" },
+          //     { value: "Quarterly", label: "Quarterly" },
+          //     { value: "Annually", label: "Annually" }
+          //   ],
+          //   validation: "required",
+          // },
           {
             name: "paymentMethod",
             label: "Payment Method",
@@ -182,7 +182,7 @@ export const USER_ONBOARDING_FORM={
         {
           name: "preferredTimeSlots",
           label: "Preferred Time Slots",
-          type: "multi-select",
+          type: "dropdown",
           options: [
             { value: "Morning", label: "Morning" },
             { value: "Afternoon", label: "Afternoon" },
