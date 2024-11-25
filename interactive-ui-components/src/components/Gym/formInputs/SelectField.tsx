@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useState } from "react";
+import { forwardRef, useState } from "react";
 import { useField } from "formik";
 import Select from "react-tailwindcss-select";
 import { InputErrorIcon, InputSuccessIcon } from "../../../assets/icons";
@@ -46,7 +46,6 @@ const SelectField = forwardRef<HTMLDivElement, SelectFieldProps>(({
     ? options?.filter((option) => selectedValues.includes(option.value)) || [] // Fall back to empty array if not found
     : {}as { value: string; label: string }[];
 
-  console.log('se;e', selectedValues, selectValue);
   const shouldShowPlaceholder = !meta.touched || (Array.isArray(selectValue) && selectValue.length === 0);
   return (
     <div className="w-full">
