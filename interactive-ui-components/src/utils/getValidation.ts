@@ -24,15 +24,23 @@ export const getValidationSchema = (fields: FieldType[]) => {
       acc[field.name] = Yup.string()
         .oneOf([Yup.ref("password"), undefined], "Passwords must match")
         .required("Confirm Password is required");
-    } else if (field.validation === "phoneNumber") {
+    } else if (field.validation === "phoneNumber" && !field.isOptional) {
       acc[field.name] = Yup.string()
         .matches(
           /^\+?[1-9]\d{1,14}$/,
           "Invalid phone number. Must be in international format (e.g., +1234567890)"
         )
         .required(`${field.label} is required`);
-    } else if (field.validation === "optional") {
-      acc[field.name] = Yup.string(); // Optional fields can be empty or valid
+    }else if (field.validation === "phoneNumber" && field.isOptional) {
+      acc[field.name] = Yup.string()
+        .matches(
+          /^\+?[1-9]\d{1,14}$/,
+          "Invalid phone number. Must be in international format (e.g., +1234567890)"
+        )
+       
+    }
+     else if (field.validation === "optional") {
+      acc[field.name] = Yup.mixed().notRequired(); // Optional fields can be empty or valid
     }
     // Add more validation types if needed
     return acc;

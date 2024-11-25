@@ -2,7 +2,10 @@ const { withTV } = require('tailwind-variants/dist/transformer.js');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = withTV({
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/react-tailwindcss-datepicker/dist/index.esm.js",
+    "./node_modules/react-tailwindcss-select/dist/index.esm.js",
+  ],
   theme: {
     extend: {
       colors: {
@@ -47,7 +50,7 @@ module.exports = withTV({
       },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"),require("@tailwindcss/forms")],
   daisyui: {
     themes: [
       {
