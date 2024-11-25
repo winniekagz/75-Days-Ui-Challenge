@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
-
+import './App.css'
 import "preline/preline";
 import { IStaticMethods } from "preline/preline";
 import {  routes } from './router';
