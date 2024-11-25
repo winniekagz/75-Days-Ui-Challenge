@@ -9,7 +9,7 @@ import 'react-phone-number-input/style.css';
 import './form.css'
 
 const PhoneField = forwardRef<HTMLInputElement, InputProps>(
-  ({ label, placeholder, ...props }, ref) => {
+  ({ label, placeholder, ...props }) => {
     const [field, meta, helpers] = useField(props.field.name); // Use Formik's `useField` hook
     const { setValue } = helpers;
 

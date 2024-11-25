@@ -7,7 +7,7 @@ import CustomTypography from "../../uiComponents/Typography";
 import Datepicker from "react-tailwindcss-datepicker";
 
 const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
-  ({ type, label, placeholder, ...props }, ref) => {
+  ({ type, label, placeholder, ...props }) => {
     const [field, meta, helpers] = useField(props.field.name); // Formik's useField hook
     const { setValue } = helpers;
 const [selectedDate,setSelectedDate]=useState(
