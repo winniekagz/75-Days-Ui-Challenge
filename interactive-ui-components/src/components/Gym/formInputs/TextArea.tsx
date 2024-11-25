@@ -12,7 +12,7 @@ const TextArea= forwardRef<HTMLInputElement, InputProps>(({
     placeholder,
     index,
     ...props
-  }, ref) => {
+  },) => {
   const [field, meta] = useField(props.field.name); // use useField hook to access field and meta
   const hasError = Boolean(meta.touched && meta.error);
   const isSuccessful = Boolean(meta.touched && !meta.error);
