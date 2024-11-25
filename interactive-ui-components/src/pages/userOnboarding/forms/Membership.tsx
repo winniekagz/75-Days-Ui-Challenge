@@ -10,8 +10,9 @@ import {
 import { Formik, Form, Field } from "formik";
 import { getValidationSchema } from "../../../utils/getValidation";
 import { Button } from "../../../components/uiComponents/button";
-import TextField from "../../../components/Gym/ TextField";
+import TextField from "../../../components/Gym/formInputs/ TextField";
 import { CreateFormProps } from "../../../types/gym.types";
+import { RenderInput } from "../../../utils/gym/gym";
 
 export default function MembershipAndHealthInfo({ currentStep, handleNext,handlePrevStep }: CreateFormProps) {
   const allFields:any= USER_ONBOARDING_FORM[currentStep] || [];
@@ -54,7 +55,7 @@ export default function MembershipAndHealthInfo({ currentStep, handleNext,handle
               color: "Secondary",
             })}
           >
-            Step 1: {userOnboarding[2].title}
+            Step 3: {userOnboarding[2].title}
           </p>
           <p
             className={CustomTypography({
@@ -81,7 +82,7 @@ export default function MembershipAndHealthInfo({ currentStep, handleNext,handle
               console.log(values);
             }}
           >
-            <Form className="space-y-4 md:grid-cols-2 gap-2 w-[100%]">
+            <Form className="space-y-4 lg:grid-cols-2 gap-2 w-[100%]">
               <div className="divide-y">
                 <p
                   className={CustomTypography({
@@ -90,10 +91,10 @@ export default function MembershipAndHealthInfo({ currentStep, handleNext,handle
                 >
                   Membership Details
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 my-4">
                   {allFields.membership.length > 0 &&
                     allFields.membership.map(
-                      (field: FormValues, index: number) => {
+                      (field: FieldType, index: number) => {
                         console.log(
                           "field:",
                           field,
@@ -109,7 +110,13 @@ export default function MembershipAndHealthInfo({ currentStep, handleNext,handle
                               label={field.label}
                               type={field.type}
                               placeholder={`Enter your ${field.label.toLowerCase()}`}
-                              component={TextField}
+                              component={RenderInput(
+                                field.type ?? "",
+                                field.validation == "phoneNumber"
+                                  ? "phone"
+                                  : field?.fields?.[0]?.type ?? ""
+                              )}
+                              options={field.options}
                             />
                           </div>
                         );
@@ -126,10 +133,10 @@ export default function MembershipAndHealthInfo({ currentStep, handleNext,handle
                   Health Details
                 </p>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 my-4">
                   {allFields.health.length > 0 &&
                     allFields.health.map(
-                      (field: FormValues, index: number) => {
+                      (field: FieldType, index: number) => {
                         return (
                           <div key={index} className="w-full">
                             <Field
@@ -137,7 +144,13 @@ export default function MembershipAndHealthInfo({ currentStep, handleNext,handle
                               label={field.label}
                               type={field.type}
                               placeholder={`Enter your ${field.label.toLowerCase()}`}
-                              component={TextField}
+                              options={field.options}
+                              component={RenderInput(
+                                field.type ?? "",
+                                field.validation == "phoneNumber"
+                                  ? "phone"
+                                  : field?.fields?.[0]?.type ?? ""
+                              )}
                             />
                           </div>
                         );

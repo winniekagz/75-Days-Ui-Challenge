@@ -7,8 +7,8 @@ import { USER_ONBOARDING_FORM, USER_ONBOARDING_STEPS } from '../../../constants/
 import { Field, Form, Formik } from 'formik';
 import { getValidationSchema } from '../../../utils/getValidation';
 import { Button } from '../../../components/uiComponents/button';
-import TextField from '../../../components/Gym/ TextField';
 import { CreateFormProps } from '../../../types/gym.types';
+import { RenderInput } from '../../../utils/gym/gym';
 
 
 
@@ -63,7 +63,7 @@ export default function CreateForm({ currentStep, handleNext }: CreateFormProps)
                   label={field.label}
                   type={field.type}
                   placeholder={`Enter your ${field.label.toLowerCase()}`}
-                  component={TextField}
+                  component={RenderInput(field.type??'',field.validation=='phoneNumber'?'phone': field?.fields?.[0]?.type)}
                 />
               </div>
             ))}

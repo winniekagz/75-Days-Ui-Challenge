@@ -1,0 +1,13 @@
+.PhoneInput--focus{
+    border: 0px;
+    height: 48px;
+ 
+}
+.PhoneInputInput{
+    border: 0px;
+    height: 48px;
+    background-color: white;
+}
+.PhoneInputCountryFlag-height{
+    height: '700px';
+}

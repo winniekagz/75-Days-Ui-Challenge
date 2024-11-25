@@ -1,7 +1,7 @@
 
 import { Formik, Form, Field } from "formik";
 
-import TextField from "../../../components/Gym/ TextField";
+import TextField from "../../../components/Gym/formInputs/ TextField";
 import { useState } from "react";
 import { FieldType, FormValues } from "../../../types/profile.types";
 import { getValidationSchema } from "../../../utils/getValidation";

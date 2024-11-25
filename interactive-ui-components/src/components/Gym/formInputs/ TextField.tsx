@@ -1,9 +1,9 @@
 import  { forwardRef } from "react";
 import { useField } from "formik";
-import { InputErrorIcon, InputSuccessIcon } from "../../assets/icons";
-import ErrorMessage from "./ErrorMessage";
-import {  InputProps } from "../../types/profile.types";
-import CustomTypography from "../uiComponents/Typography";
+import { InputErrorIcon, InputSuccessIcon } from "../../../assets/icons";
+import ErrorMessage from "../ErrorMessage";
+import {  InputProps } from "../../../types/profile.types";
+import CustomTypography from "../../uiComponents/Typography";
 
 
 
@@ -37,6 +37,7 @@ const TextField = forwardRef<HTMLInputElement, InputProps>(({
             isSuccessful ? "border-teal-500 focus:ring-teal-500" : ""} 
               `}
           aria-describedby={`id-${field.name}-error-helper`}
+          
         />
         <div className="absolute inset-y-0 end-0 flex items-center pointer-events-none pe-3">
           {hasError ? <InputErrorIcon /> : isSuccessful ? <InputSuccessIcon /> : null}

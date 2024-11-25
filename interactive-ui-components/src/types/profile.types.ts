@@ -25,6 +25,7 @@ export type FieldType = {
   options?: string[]; 
   fields?: FieldType[];  
   additionalInfo?: string;  
+  isOptional?:boolean
 };
 
 
@@ -38,5 +39,9 @@ export type FieldType = {
     type: string;
     placeholder: string;
     index: number; 
-    field:FieldType// Index for identifying touched and errors in FieldArray
+    field:FieldType
   };
+
+  export interface DatePickerProps extends InputProps{
+    isSingle:boolean
+  }
