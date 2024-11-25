@@ -41,12 +41,11 @@ const SelectField = forwardRef<HTMLDivElement, SelectFieldProps>(({
     }
   };
   const selectValue:any = type === 'dropdown'
-  ? options?.find(option => option.value === field.value) || {}as { value: string; label: string }[] // Fall back to empty string if not found
+  ? options?.find(option => option.value === field.value) || '' // Fall back to empty string if not found
   : Array.isArray(selectedValues) 
-    ? options?.filter((option) => selectedValues.includes(option.value)) || [] // Fall back to empty array if not found
-    : {}as { value: string; label: string }[];
+    ? options?.filter((option) => selectedValues.includes(option.value)) || '' // Fall back to empty array if not found
+    :'';
 
-  const shouldShowPlaceholder = !meta.touched || (Array.isArray(selectValue) && selectValue.length === 0);
   return (
     <div className="w-full">
       <label htmlFor={`id-${field.name}`} className={CustomTypography({ fontSize: 'cardTitle' })}>
@@ -56,10 +55,10 @@ const SelectField = forwardRef<HTMLDivElement, SelectFieldProps>(({
         <Select
           {...props}
           primaryColor="red"
-          value={shouldShowPlaceholder ? '' : selectValue}
+          value={selectValue}
           onChange={handleChange}
           options={options ?? []}
-          
+          isClearable
           placeholder={placeholder}
           isMultiple={type === 'multi-select'}
           classNames={{
