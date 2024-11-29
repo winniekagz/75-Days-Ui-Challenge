@@ -222,21 +222,21 @@ export const USER_ONBOARDING_FORM={
           ],
           validation: "optional",
         },
-        {
-          name: "regularProgressUpdates",
-          label: "Regular Progress Updates",
-          type: "group",
-          fields: [
-            { name: "date", label: "Date", type: "date", validation: "required" },
+        // {
+        //   name: "regularProgressUpdates",
+        //   label: "Regular Progress Updates",
+        //   type: "group",
+        //   fields: [
+        //     { name: "date", label: "Date", type: "date", validation: "required" },
             
-              { name: "weight", label: "Weight (kg)", type: "number", validation: "optional" },
-              { name: "bodyFatPercentage", label: "Body Fat %", type: "number", validation: "optional" },
-              { name: "muscleMass", label: "Muscle Mass (kg)", type: "number", validation: "optional" },
+        //       { name: "weight", label: "Weight (kg)", type: "number", validation: "optional" },
+        //       { name: "bodyFatPercentage", label: "Body Fat %", type: "number", validation: "optional" },
+        //       { name: "muscleMass", label: "Muscle Mass (kg)", type: "number", validation: "optional" },
             
-            { name: "milestones", label: "Milestones", type: "text", validation: "optional" },
-          ],
-          validation: "optional",
-        },
+        //     { name: "milestones", label: "Milestones", type: "text", validation: "optional" },
+        //   ],
+        //   validation: "optional",
+        // },
       ],
       
    }
