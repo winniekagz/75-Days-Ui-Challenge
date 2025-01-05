@@ -1,3 +1,5 @@
+import { FieldType } from "../types/profile.types"
+
 export const USER_ONBOARDING_STEPS={
     'CREATE_ACCOUNT':'Create account',
     'PERSONAL_INFO':'Personal info',
@@ -240,7 +242,11 @@ export const USER_ONBOARDING_FORM={
       ],
       
    }
-
+  export const BMI_CALCULATOR: FieldType[] =[
+    { name: "height", label: "Height (M)", type: "number", validation: "required" },
+    { name: "weight", label: "Weight (kg)", type: "number", validation: "required" },
+    { name: "age", label: "Age", type: "number", validation: "required" } 
+  ]
    export  const COLORS={
     Primary: "#FF3B30",
     Secondary: "#121212",

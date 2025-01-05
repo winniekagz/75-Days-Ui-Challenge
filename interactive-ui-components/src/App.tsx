@@ -4,6 +4,7 @@ import './App.css'
 import "preline/preline";
 import { IStaticMethods } from "preline/preline";
 import {  routes } from './router';
+import './styles/animationn.css'
 
 declare global {
   interface Window {
